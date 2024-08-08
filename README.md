@@ -17,7 +17,7 @@ https://learn.microsoft.com/en-us/aspnet/core/blazor/tutorials/signalr-blazor?vi
 - Clone Repo
 
 ```
-git clone https://git.damm.dev/FIAE-C/blog.git
+git clone https://git.damm.dev/FIAE-C/SimpleChat.git
 ```
 
 - Build project (Optional)
