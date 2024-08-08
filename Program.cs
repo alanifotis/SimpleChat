@@ -1,10 +1,26 @@
+// Package Dependencies
+using Microsoft.AspNetCore.ResponseCompression;
+
+
+// Local Dependencies 
 using SimpleChat.Components;
+using SimpleChat.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+
+// Add SignalR Service
+builder.Services.AddSignalR();
+
+builder.Services.AddResponseCompression(opts =>
+{
+   opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+       ["application/octet-stream"]);
+});
 
 var app = builder.Build();
 
@@ -23,5 +39,8 @@ app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
+
+app.UseResponseCompression();
+app.MapHub<ChatHub>("/chathub");
 
 app.Run();
