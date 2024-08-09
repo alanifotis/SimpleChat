@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pDz/RyXj//Mkk2eu1ecxLaaiMWHjOSp2mzdpB34xk5M=",
+  "Hash": "3qhiA11ggAhQYB+Dkxn1UZbQ8HYXHbl6R7yAJtdhKsw=",
   "Source": "SimpleChat",
   "BasePath": "_content/SimpleChat",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\tailwind-app.css",
+      "SourceId": "SimpleChat",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\",
+      "BasePath": "_content/SimpleChat",
+      "RelativePath": "tailwind-app.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\tailwind-app.css"
     }
   ]
 }

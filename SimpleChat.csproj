@@ -19,4 +19,17 @@
     </PackageReference>
   </ItemGroup>
 
+
+  <Target Name="CheckforTailwind" BeforeTargets="BuildCSS">
+    <Exec Command="tailwindcss.exe -h" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Tailwind CLI missing!\nDownload it from https://github.com/tailwindlabs/tailwindcss/releases/latest and rename it to tailwindcss.exe" />
+  </Target>
+
+  <Target Name="BuildCSS" BeforeTargets="Compile">
+    <Exec EnviromentVariables="NODE_ENV=production"
+          Command=".\tailwindcss.exe -i .\Style\tailwind-app.css -o .\wwwroot\tailwind-app.css --minify"
+          Condition=" '$(Configuration)' == 'Release' " />
+  </Target>
 </Project>
