@@ -1,42 +1,53 @@
 @page "/chat"
 @rendermode InteractiveServer
 @using Microsoft.AspNetCore.SignalR.Client
+@using System.ComponentModel.DataAnnotations
 @inject NavigationManager Navigation
 @implements IAsyncDisposable
 
 <PageTitle>Chat</PageTitle>
 
-@if (String.IsNullOrEmpty(userInput))
+
+
+@if (String.IsNullOrEmpty(UserName))
 {
-    <div class="form-group">
-        <label>
-            User: <input @bind="userInput" />
-        </label>
-    </div>
+    <UserNameInput OnUserNameSet="SetUserName" />
 }
 
-<MessageInput IsConnected="hubConnection?.State == HubConnectionState.Connected" OnUpdate="HandleUpdate" />
+
+
+<MessageInput IsConnected="hubConnection?.State == HubConnectionState.Connected" OnNewMessage="NewChatMessage" />
 
 <hr>
 
 <ul id="messagesList">
 
-        @foreach (var message in messages)
-        {
-            <li>
-                <DisplayMessageComponent chatMessage="message" userName="userInput" />
-            </li>
-        }
-
+    @foreach (var message in messages)
+    {
+        <li>
+            <DisplayMessageComponent chatMessage=@message userName=@UserName />
+        </li>
+    }
 </ul>
 
 @code {
     private HubConnection? hubConnection;
     private List<string> messages = new List<string>();
-    public required string userInput { get; set; }
+
+
+    private string _userName;
+
+    public required string UserName;
+
+
+    private async void SetUserName(string newUserName)
+    {
+        UserName = newUserName;
+        await Task.CompletedTask;
+    }
     public required string messageInput;
 
-    private async void HandleUpdate(string newValue)
+    private async void NewChatMessage(string newValue)
     {
         messageInput = newValue;
         await Send();
@@ -51,7 +62,7 @@
 
         hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
         {
-            var encodedMsg = $"{user}: {message}";
+            var encodedMsg = message;
             messages.Add(encodedMsg);
             InvokeAsync(StateHasChanged);
         });
@@ -61,9 +72,9 @@
 
     private async Task Send()
     {
-        if (hubConnection is not null && !String.IsNullOrEmpty(messageInput))
+        if (hubConnection is not null && !String.IsNullOrEmpty(messageInput.Trim()))
         {
-            await hubConnection.SendAsync("SendMessage", userInput, messageInput);
+            await hubConnection.SendAsync("SendMessage", UserName, messageInput);
         }
     }
 
@@ -74,4 +85,5 @@
             await hubConnection.DisposeAsync();
         }
     }
+
 }

@@ -43,11 +43,11 @@
     public bool IsConnected {get; set; } = false;
     public required string userInput { get; set; }
     [Parameter]
-    public EventCallback<string> OnUpdate { get; set; }
+    public EventCallback<string> OnNewMessage { get; set; }
 
     private async Task UpdateParent()
     {
-        await OnUpdate.InvokeAsync(userInput);
+        await OnNewMessage.InvokeAsync(userInput);
         userInput = string.Empty;
     }
 }
