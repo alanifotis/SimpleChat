@@ -1,0 +1,27 @@
+@using SimpleChat.Models
+@using SimpleChat.Controllers
+@inject UserController data
+
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+
+@page "/users"
+
+<div>
+    @if (users is not null)
+    {
+        @foreach (var user in users)
+        {
+            <li>@user</li>
+        }
+    }
+</div>
+
+@code {
+    private List<User>? users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        users = await HttpClient.GetFromJsonAsync<List<User>>(NavigationManager.BaseUri + "api/users");
+    }
+}

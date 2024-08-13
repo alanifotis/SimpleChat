@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iwqR0wfw6tU4zma2iFT4jFXRMBByCkQLoGR7i/ilY5vr/86dfflsXbdZlMgNDAyADRqA2iP6N3u0ygfy2WKYTg==",
+  "dgSpecHash": "qmcA9AsI/2C7BWihZB2b0G82/PdEw0nw/IiHiUYzZsLxZTZ179S5r75GqzN1ZvxFgS6x6KKzZ96HG8k9BNUAVQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\SimpleChat.csproj",
   "expectedPackageFiles": [
@@ -53,6 +53,7 @@
     "C:\\Users\\fkurushi\\.nuget\\packages\\system.composition.typedparts\\6.0.0\\system.composition.typedparts.6.0.0.nupkg.sha512",
     "C:\\Users\\fkurushi\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
     "C:\\Users\\fkurushi\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\fkurushi\\.nuget\\packages\\system.net.http.json\\8.0.0\\system.net.http.json.8.0.0.nupkg.sha512",
     "C:\\Users\\fkurushi\\.nuget\\packages\\system.reflection.metadata\\6.0.1\\system.reflection.metadata.6.0.1.nupkg.sha512",
     "C:\\Users\\fkurushi\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\fkurushi\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512",

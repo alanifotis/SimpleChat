@@ -9,9 +9,11 @@
       "SimpleChat/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.SignalR.Client": "8.0.7",
+          "Microsoft.EntityFrameworkCore": "8.0.7",
           "Microsoft.EntityFrameworkCore.Design": "8.0.7",
           "Microsoft.EntityFrameworkCore.Sqlite": "8.0.7",
-          "Microsoft.EntityFrameworkCore.Tools": "8.0.7"
+          "Microsoft.EntityFrameworkCore.Tools": "8.0.7",
+          "System.Net.Http.Json": "8.0.0"
         },
         "runtime": {
           "SimpleChat.dll": {}
@@ -732,6 +734,11 @@
       },
       "System.IO.Pipelines/8.0.0": {},
       "System.Memory/4.5.3": {},
+      "System.Net.Http.Json/8.0.0": {
+        "dependencies": {
+          "System.Text.Json": "8.0.4"
+        }
+      },
       "System.Reflection.Metadata/6.0.1": {
         "dependencies": {
           "System.Collections.Immutable": "6.0.0"
@@ -1106,6 +1113,13 @@
       "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
       "path": "system.memory/4.5.3",
       "hashPath": "system.memory.4.5.3.nupkg.sha512"
+    },
+    "System.Net.Http.Json/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-48Bxrd6zcGeQzS4GMEDVjuqCcAw/9wcEWnIu48FQJ5IzfKPiMR1nGtz9LrvGzU4+3TLbx/9FDlGmCUeLin1Eqg==",
+      "path": "system.net.http.json/8.0.0",
+      "hashPath": "system.net.http.json.8.0.0.nupkg.sha512"
     },
     "System.Reflection.Metadata/6.0.1": {
       "type": "package",

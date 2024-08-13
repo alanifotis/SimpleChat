@@ -10,5 +10,6 @@ public class User {
     public required string SentMessage { get; set;} 
 
     public bool Valid { get; set; }
+    
     public ICollection<ChatMessage> ChatMessages { get; } = new List<ChatMessage>();
 }

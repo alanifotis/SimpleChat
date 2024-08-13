@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -17,6 +18,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="System.Net.Http.Json" Version="8.0.0" />
   </ItemGroup>
 
 
@@ -28,8 +30,6 @@
   </Target>
 
   <Target Name="BuildCSS" BeforeTargets="Compile">
-    <Exec EnviromentVariables="NODE_ENV=production"
-          Command=".\tailwindcss.exe -i .\Style\tailwind-app.css -o .\wwwroot\tailwind-app.css --minify"
-          Condition=" '$(Configuration)' == 'Release' " />
+    <Exec EnviromentVariables="NODE_ENV=production" Command=".\tailwindcss.exe -i .\Style\tailwind-app.css -o .\wwwroot\tailwind-app.css --minify" Condition=" '$(Configuration)' == 'Release' " />
   </Target>
 </Project>

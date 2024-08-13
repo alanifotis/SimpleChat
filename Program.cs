@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using SimpleChat.Components;
 using SimpleChat.Hubs;
 using SimpleChat.Data;
+using SimpleChat.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +21,16 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddServerSideBlazor();
-builder.Services.AddDbContextFactory<ChatMessagesDBContext>(options => options.UseSqlite(connectionString));
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddHttpClient();
+
+
+builder.Services.AddDbContext<ChatMessagesDBContext>(options =>
+        options.UseSqlite(connectionString), ServiceLifetime.Scoped);
+
+builder.Services.AddSingleton<UserController>();
 
 
 // Add SignalR Service
@@ -41,6 +51,11 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.MapRazorPages();
+app.MapBlazorHub();
+app.MapFallbackToPage("/_Host");
+app.MapControllerRoute("default", "{controller=Home}/api/users");
 
 app.UseHttpsRedirection();
 
