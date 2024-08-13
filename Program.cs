@@ -13,12 +13,11 @@ using SimpleChat.Controllers;
 var builder = WebApplication.CreateBuilder(args);
 
 // DBFile 
-var connectionString = builder.Configuration.GetConnectionString("EmployeeDB");
+var connectionString = builder.Configuration.GetConnectionString("DBFile");
 
 
 // Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
+builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
 builder.Services.AddServerSideBlazor();
 
@@ -26,11 +25,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHttpClient();
 
+builder.Services.AddDbContextFactory<ChatMessagesDBContext>(options => options.UseSqlite(connectionString));
 
-builder.Services.AddDbContext<ChatMessagesDBContext>(options =>
-        options.UseSqlite(connectionString), ServiceLifetime.Scoped);
-
-builder.Services.AddSingleton<UserController>();
+builder.Services.AddSingelton<UserService>();
 
 
 // Add SignalR Service
@@ -52,10 +49,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.MapRazorPages();
-app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
-app.MapControllerRoute("default", "{controller=Home}/api/users");
 
 app.UseHttpsRedirection();
 
@@ -67,5 +60,11 @@ app.MapRazorComponents<App>()
 
 app.UseResponseCompression();
 app.MapHub<ChatHub>("/chathub");
+
+var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
+using (var scope = scopeFactory.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ChatMessagesDBContext>();
+}
 
 app.Run();
