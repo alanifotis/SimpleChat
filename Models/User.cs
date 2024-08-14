@@ -2,12 +2,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SimpleChat.Models;
 
-public class User {
+public class User () {
     public int Id { get; set; }
 
-    public required string UserName { get; set; }
+    public string UserName { get; set; } = string.Empty;
 
-    public required string SentMessage { get; set;} 
+    public string SentMessage { get; set;} = string.Empty;
 
     public bool Valid { get; set; }
     

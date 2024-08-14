@@ -96,7 +96,7 @@ namespace SimpleChat.Controllers
 
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
-
+            
             return NoContent();
         }
 

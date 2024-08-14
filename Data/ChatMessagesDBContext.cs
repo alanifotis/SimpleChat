@@ -1,5 +1,5 @@
+using System.Configuration;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using SimpleChat.Models;
 
 namespace SimpleChat.Data;

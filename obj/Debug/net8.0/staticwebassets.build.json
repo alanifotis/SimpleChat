@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3qhiA11ggAhQYB+Dkxn1UZbQ8HYXHbl6R7yAJtdhKsw=",
+  "Hash": "5nrvNg9XBKNDWN/cKM2Se7+gWvkd+6hUNP+fw3kmQ9o=",
   "Source": "SimpleChat",
   "BasePath": "_content/SimpleChat",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "SimpleChat\\wwwroot",
       "Source": "SimpleChat",
-      "ContentRoot": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\",
       "BasePath": "_content/SimpleChat",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SimpleChat.styles.css",
+      "Identity": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SimpleChat.styles.css",
       "SourceId": "SimpleChat",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/SimpleChat",
       "RelativePath": "SimpleChat.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SimpleChat.styles.css"
+      "OriginalItemSpec": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SimpleChat.styles.css"
     },
     {
-      "Identity": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SimpleChat.bundle.scp.css",
+      "Identity": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SimpleChat.bundle.scp.css",
       "SourceId": "SimpleChat",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/SimpleChat",
       "RelativePath": "SimpleChat.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SimpleChat.bundle.scp.css"
+      "OriginalItemSpec": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SimpleChat.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\app.css",
+      "Identity": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\app.css",
       "SourceId": "SimpleChat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\",
       "BasePath": "_content/SimpleChat",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "SimpleChat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\",
       "BasePath": "_content/SimpleChat",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "SimpleChat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\",
       "BasePath": "_content/SimpleChat",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\favicon.png",
+      "Identity": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\favicon.png",
       "SourceId": "SimpleChat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\",
       "BasePath": "_content/SimpleChat",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\tailwind-app.css",
+      "Identity": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\tailwind-app.css",
       "SourceId": "SimpleChat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\wwwroot\\",
       "BasePath": "_content/SimpleChat",
       "RelativePath": "tailwind-app.css",
       "AssetKind": "All",
