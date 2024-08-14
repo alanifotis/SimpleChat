@@ -2,13 +2,13 @@
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-
+using Microsoft.AspNetCore.Mvc;
 
 // Local Dependencies 
 using SimpleChat.Components;
 using SimpleChat.Hubs;
 using SimpleChat.Data;
-using SimpleChat.Controllers;
+using SimpleChat.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,14 +21,11 @@ builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
 builder.Services.AddServerSideBlazor();
 
-builder.Services.AddControllers();
+builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ChatMessagesDBContext>(options => options.UseSqlite(connectionString));
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHttpClient();
-
-builder.Services.AddDbContextFactory<ChatMessagesDBContext>(options => options.UseSqlite(connectionString));
-
-builder.Services.AddSingelton<UserService>();
-
 
 // Add SignalR Service
 builder.Services.AddSignalR();
@@ -61,10 +58,6 @@ app.MapRazorComponents<App>()
 app.UseResponseCompression();
 app.MapHub<ChatHub>("/chathub");
 
-var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
-using (var scope = scopeFactory.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<ChatMessagesDBContext>();
-}
+app.MapControllers();
 
 app.Run();

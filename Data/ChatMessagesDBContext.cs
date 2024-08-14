@@ -6,17 +6,10 @@ namespace SimpleChat.Data;
 
 public class ChatMessagesDBContext : DbContext
 {
-    protected readonly IConfiguration Configuration;
-
-    public ChatMessagesDBContext(IConfiguration configuration)
+    public ChatMessagesDBContext(DbContextOptions<ChatMessagesDBContext> options)
+        : base(options)
     {
-        Configuration = configuration;
     }
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlite(Configuration.GetConnectionString("DBFile"));
-    }
-
 
     public DbSet<ChatMessage> ChatMessages { get; set; }
 
