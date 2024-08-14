@@ -11,5 +11,4 @@ public class ChatMessage {
     [Required, MinLength(3)]
     public required string Message { get; set; }
 
-    public User User { get; set; } = null!;
 }

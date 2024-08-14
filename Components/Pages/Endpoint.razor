@@ -1,4 +1,8 @@
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.Extensions.Options
+@using SimpleChat.Controllers
 @using SimpleChat.Models
+@using SimpleChat.Data
 
 @inject HttpClient HttpClient
 @inject NavigationManager NavigationManager
@@ -10,7 +14,7 @@
     {
         @foreach (var user in users)
         {
-            <li>@user</li>
+            <li>@user.UserName: @user.SentMessage</li>
         }
     }
 </div>
@@ -18,8 +22,10 @@
 @code {
     private List<User>? users;
 
+    private readonly ChatController chatController = new ChatController(new ChatMessagesDBContext(new DbContextOptions<ChatMessagesDBContext>()));
+
     protected override async Task OnInitializedAsync()
     {
-        users = await HttpClient.GetFromJsonAsync<List<User>>(NavigationManager.BaseUri + "api/users");
+        users = await HttpClient.GetFromJsonAsync<List<User>>(NavigationManager.BaseUri + "api/user");
     }
-}
+}    using SimpleChat.Controllers;
