@@ -15,7 +15,7 @@
 <div>
     <input type="text" @bind=@username>Username: </input>
     <input type="text" @bind=@message>message: </input>
-    <button @onclick="CreateUser" type="button">Send</button>
+    <button  type="button">Send</button>
 </div>
 
 @code {
@@ -30,13 +30,12 @@
         users = await HttpClient.GetFromJsonAsync<List<User>>(NavigationManager.BaseUri + "api/user");
     }
 
-    private async Task CreateUser()
+    /* private async Task CreateUser()
     {
         User user = new User
             {
                 UserName = username,
-                SentMessage = message,
-                Valid = true
+                SentMessage = message
             };
 
         if (user is not null)
@@ -46,5 +45,5 @@
             NavigationManager.NavigateTo("/");
         }
 
-    }
+    } */
 }
