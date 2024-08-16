@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\fkurushi\\blazor\\SimpleChat\\SimpleChat.csproj": {}
+    "C:\\Users\\fkurushi\\blazor\\SimpleChat\\SimpleChat.csproj": {}
   },
   "projects": {
-    "c:\\Users\\fkurushi\\blazor\\SimpleChat\\SimpleChat.csproj": {
+    "C:\\Users\\fkurushi\\blazor\\SimpleChat\\SimpleChat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\SimpleChat.csproj",
+        "projectUniqueName": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\SimpleChat.csproj",
         "projectName": "SimpleChat",
-        "projectPath": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\SimpleChat.csproj",
+        "projectPath": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\SimpleChat.csproj",
         "packagesPath": "C:\\Users\\fkurushi\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\obj\\",
+        "outputPath": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fkurushi\\AppData\\Roaming\\NuGet\\NuGet.Config",

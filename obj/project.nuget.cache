@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sdB0k1sbhTbde7Z0zEYWD82oeH2O2AGefCuxfMcjGABjlU9wjgLob8O0UXnUnUnp5TF3Zk5jEfZFGLwGf9QhsQ==",
+  "dgSpecHash": "eZlTZTY7BUGnPQLD+DUcpyxti5DM1/YVFoQrC9vy7CYufR9klGmDlfCrERNQDq53aD8TLWO+sfHBIlXnOXBxbw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\fkurushi\\blazor\\SimpleChat\\SimpleChat.csproj",
+  "projectFilePath": "C:\\Users\\fkurushi\\blazor\\SimpleChat\\SimpleChat.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fkurushi\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\fkurushi\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

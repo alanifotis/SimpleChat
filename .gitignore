@@ -1,0 +1,15 @@
+#Let's ignore some things
+
+# 1) Files
+# *.csproj
+# *.csproj.user
+# *.sln
+
+*.db
+.
+
+
+# 2) Folders
+bin/
+.vs/
+.vscode/

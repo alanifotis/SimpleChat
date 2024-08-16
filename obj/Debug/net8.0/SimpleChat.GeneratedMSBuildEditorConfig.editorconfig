@@ -17,75 +17,75 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SimpleChat
 build_property.RootNamespace = SimpleChat
-build_property.ProjectDir = c:\Users\fkurushi\blazor\SimpleChat\
+build_property.ProjectDir = C:\Users\fkurushi\blazor\SimpleChat\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\fkurushi\blazor\SimpleChat
+build_property.MSBuildProjectDirectory = C:\Users\fkurushi\blazor\SimpleChat
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/fkurushi/blazor/SimpleChat/Components/App.razor]
+[C:/Users/fkurushi/blazor/SimpleChat/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/fkurushi/blazor/SimpleChat/Components/Layout/Logo.razor]
+[C:/Users/fkurushi/blazor/SimpleChat/Components/Layout/Logo.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTG9nby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/fkurushi/blazor/SimpleChat/Components/Pages/Chat.razor]
+[C:/Users/fkurushi/blazor/SimpleChat/Components/Pages/Chat.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaGF0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/fkurushi/blazor/SimpleChat/Components/Pages/ChatV2.razor]
+[C:/Users/fkurushi/blazor/SimpleChat/Components/Pages/ChatV2.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaGF0VjIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/fkurushi/blazor/SimpleChat/Components/Pages/Counter.razor]
+[C:/Users/fkurushi/blazor/SimpleChat/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/fkurushi/blazor/SimpleChat/Components/Pages/DisplayMessageComponent.razor]
+[C:/Users/fkurushi/blazor/SimpleChat/Components/Pages/DisplayMessageComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEaXNwbGF5TWVzc2FnZUNvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/fkurushi/blazor/SimpleChat/Components/Pages/Endpoint.razor]
+[C:/Users/fkurushi/blazor/SimpleChat/Components/Pages/Endpoint.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFbmRwb2ludC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/fkurushi/blazor/SimpleChat/Components/Pages/Error.razor]
+[C:/Users/fkurushi/blazor/SimpleChat/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/fkurushi/blazor/SimpleChat/Components/Pages/Home.razor]
+[C:/Users/fkurushi/blazor/SimpleChat/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/fkurushi/blazor/SimpleChat/Components/Pages/MessageInput.razor]
+[C:/Users/fkurushi/blazor/SimpleChat/Components/Pages/MessageInput.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNZXNzYWdlSW5wdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/fkurushi/blazor/SimpleChat/Components/Pages/UserNameInput.razor]
+[C:/Users/fkurushi/blazor/SimpleChat/Components/Pages/UserNameInput.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyTmFtZUlucHV0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/fkurushi/blazor/SimpleChat/Components/Pages/Weather.razor]
+[C:/Users/fkurushi/blazor/SimpleChat/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/fkurushi/blazor/SimpleChat/Components/Routes.razor]
+[C:/Users/fkurushi/blazor/SimpleChat/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/fkurushi/blazor/SimpleChat/Components/_Imports.razor]
+[C:/Users/fkurushi/blazor/SimpleChat/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/fkurushi/blazor/SimpleChat/Components/Layout/MainLayout.razor]
+[C:/Users/fkurushi/blazor/SimpleChat/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-sos9xtc7j3
 
-[c:/Users/fkurushi/blazor/SimpleChat/Components/Layout/NavMenu.razor]
+[C:/Users/fkurushi/blazor/SimpleChat/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-zgj98spuuw

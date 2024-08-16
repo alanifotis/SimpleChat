@@ -25,9 +25,6 @@
 
     private List<User>? users;
 
-    private readonly UserController chatController = new UserController(new ChatMessagesDBContext(new
-    DbContextOptions<ChatMessagesDBContext>()));
-
     protected override async Task OnInitializedAsync()
     {
         users = await HttpClient.GetFromJsonAsync<List<User>>(NavigationManager.BaseUri + "api/user");
