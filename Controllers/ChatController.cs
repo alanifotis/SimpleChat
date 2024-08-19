@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +11,7 @@ using SimpleChat.Models;
 
 namespace SimpleChat.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class ChatController : ControllerBase
     {
@@ -23,9 +24,9 @@ namespace SimpleChat.Controllers
 
         // GET: api/Chat
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ChatMessage>>> GetChatMessages()
+        public async Task<ActionResult<IEnumerable<ChatMessage>>> GetChatMessages(ulong userId)
         {
-            return await _context.ChatMessages.ToListAsync();
+            return await _context.ChatMessages.FromSql($"select * from chat_message where user_id={userId}").ToListAsync();
         }
 
         // GET: api/Chat/5
@@ -56,7 +57,11 @@ namespace SimpleChat.Controllers
 
             try
             {
-                await _context.SaveChangesAsync();
+                if (chatMessage.UserID is null) {
+                    return Ok(new { StatusCode = 200, Message = "Guest messages aren't stored in the Database" });
+                } else {
+                    await _context.SaveChangesAsync();
+                }
             }
             catch (DbUpdateConcurrencyException)
             {

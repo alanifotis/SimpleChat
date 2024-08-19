@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using SimpleChat.Data;
 using SimpleChat.Models;
 
 namespace SimpleChat.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -21,11 +22,13 @@ namespace SimpleChat.Controllers
             _context = context;
         }
 
+        protected private List<User> Users { get; set; }
+
         // GET: api/User
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            return Users = await _context.Users.ToListAsync();
         }
 
         // GET: api/User/5
@@ -79,7 +82,10 @@ namespace SimpleChat.Controllers
         public async Task<ActionResult<User>> PostUser(User user)
         {
             _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+
+            var duplicateUser = await _context.Users.FromSql($"select * from user where user_name={user.UserName.ToLower()}").ToListAsync();
+            if(duplicateUser.IsNullOrEmpty()) await _context.SaveChangesAsync();
+            else return Conflict(new {Code = 409, Message = "User Already Exists" });
 
             return CreatedAtAction("GetUser", new { id = user.Id }, user);
         }

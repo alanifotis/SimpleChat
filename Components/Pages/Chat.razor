@@ -1,15 +1,25 @@
 @page "/chat"
+
 @rendermode InteractiveServer
+
 @using Microsoft.AspNetCore.SignalR.Client
 @using System.ComponentModel.DataAnnotations
+@using SimpleChat.Services
+
 @inject NavigationManager Navigation
+@inject UserNameService UserNameService
+
 @implements IAsyncDisposable
 
 <PageTitle>Chat</PageTitle>
 
+@if (!String.IsNullOrWhiteSpace(UserNameService.UserName)) {
+    <h1>Welcome @UserNameService.UserName</h1>
 
+    UserName = UserNameService.UserName;
+}
 
-@if (String.IsNullOrEmpty(UserName))
+@if (String.IsNullOrWhiteSpace(UserName))
 {
     <UserNameInput OnUserNameSet="SetUserName" />
 }

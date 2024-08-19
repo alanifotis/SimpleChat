@@ -6,32 +6,33 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SimpleChat.Models;
 
- [Table("user")]
-public class User () {
+[Table("user")]
+public class User()
+{
     [
-        Key, 
+        Key,
         Column("id"),
         DatabaseGenerated(DatabaseGeneratedOption.Identity)
     ]
     public ulong Id { get; set; }
 
     [
-        Required, 
+        Required,
         MinLength(2, ErrorMessage = "Two characters are required to set your UserName."),
         MaxLength(50, ErrorMessage = "Max allowed length is 50 Characters."),
         Column("user_name")
     ]
     public string UserName { get; set; } = string.Empty;
 
-    [   
-        Required, 
-        MinLength(6, ErrorMessage = "Min. 6 characters are required"), 
-        MaxLength(50, ErrorMessage = "Max. allowed length is 50 Characters."), 
+    [
+        Required,
+        MinLength(6, ErrorMessage = "Min. 6 characters are required"),
+        MaxLength(50, ErrorMessage = "Max. allowed length is 50 Characters."),
         Column("password"),
         DataType(DataType.Password)
     ]
 
     public string Password { get; set; } = string.Empty;
-    
+
     public ICollection<ChatMessage> ChatMessages { get; } = new List<ChatMessage>();
 }

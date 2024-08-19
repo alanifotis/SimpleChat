@@ -8,7 +8,7 @@ public class ChatMessage {
     public ulong Id { get; set; }
 
     [Column("user_id")]
-    public ulong UserID { get; set; }
+    public ulong? UserID { get; set; } = null;
 
     [
         Required(AllowEmptyStrings = false, ErrorMessage = "Please provide a message"),
