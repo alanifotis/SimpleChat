@@ -1,0 +1,49 @@
+@using Microsoft.AspNetCore.Mvc
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.Extensions.Options
+@using SimpleChat.Controllers
+@using SimpleChat.Models
+@using SimpleChat.Data
+@rendermode InteractiveServer
+
+
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+
+@page "/users"
+
+<div>
+    <input type="text" @bind=@username>Username: </input>
+    <input type="text" @bind=@message>message: </input>
+    <button  type="button">Send</button>
+</div>
+
+@code {
+
+    private string message = string.Empty;
+    private string username = string.Empty;
+
+    private List<User>? users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        users = await HttpClient.GetFromJsonAsync<List<User>>(NavigationManager.BaseUri + "api/user");
+    }
+
+    /* private async Task CreateUser()
+    {
+        User user = new User
+            {
+                UserName = username,
+                SentMessage = message
+            };
+
+        if (user is not null)
+        {
+            var post = await HttpClient.PostAsJsonAsync<User>(NavigationManager.BaseUri + "api/user", user);
+            
+            NavigationManager.NavigateTo("/");
+        }
+
+    } */
+}

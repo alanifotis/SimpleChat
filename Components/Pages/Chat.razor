@@ -1,0 +1,85 @@
+@page "/chat"
+@rendermode InteractiveServer
+@using Microsoft.AspNetCore.SignalR.Client
+@using System.ComponentModel.DataAnnotations
+@inject NavigationManager Navigation
+@implements IAsyncDisposable
+
+<PageTitle>Chat</PageTitle>
+
+
+
+@if (String.IsNullOrEmpty(UserName))
+{
+    <UserNameInput OnUserNameSet="SetUserName" />
+}
+
+
+
+<MessageInput IsConnected="hubConnection?.State == HubConnectionState.Connected" OnNewMessage="NewChatMessage" />
+
+<hr>
+
+<ul id="messagesList">
+
+    @foreach (var message in messages)
+    {
+        <li>
+            <DisplayMessageComponent chatMessage=@message userName=@UserName />
+        </li>
+    }
+</ul>
+
+@code {
+    private HubConnection? hubConnection;
+    private List<string> messages = new List<string>();
+
+    public required string UserName;
+
+    private async void SetUserName(string newUserName)
+    {
+        UserName = newUserName;
+        await Task.CompletedTask;
+    }
+    public required string messageInput;
+
+    private async void NewChatMessage(string newValue)
+    {
+        messageInput = newValue;
+        await Send();
+
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        hubConnection = new HubConnectionBuilder()
+        .WithUrl(Navigation.ToAbsoluteUri("/chathub"))
+        .Build();
+
+        hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
+        {
+            var encodedMsg = message;
+            messages.Add(encodedMsg);
+            InvokeAsync(StateHasChanged);
+        });
+
+        await hubConnection.StartAsync();
+    }
+
+    private async Task Send()
+    {
+        if (hubConnection is not null && !String.IsNullOrEmpty(messageInput.Trim()))
+        {
+            await hubConnection.SendAsync("SendMessage", UserName, messageInput);
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (hubConnection is not null)
+        {
+            await hubConnection.DisposeAsync();
+        }
+    }
+
+}
