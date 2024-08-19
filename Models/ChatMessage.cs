@@ -1,15 +1,16 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
 namespace SimpleChat.Models;
 
 public class ChatMessage {
-    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    [Key, Column("id")]
+    public Guid Id { get; set; } 
 
-    [ForeignKey("User")]
-    public int UserId { get; set; }
+    public Guid SetID() { return Guid.NewGuid(); }
+
+    [Column("user_id")]
+    public long UserID { get; set; }
 
     [
         Required(AllowEmptyStrings = false, ErrorMessage = "Please provide a message"),
@@ -17,5 +18,8 @@ public class ChatMessage {
         Column("chat_message", TypeName = "VARCHAR(255)"),
     ]
     public string Message { get; set; } = string.Empty; 
+
+    [ForeignKey("UserID")]
+    public User User { get; init; } = null!;
 
 }

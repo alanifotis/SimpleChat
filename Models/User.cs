@@ -13,7 +13,7 @@ public class User () {
         Column("id"),
         DatabaseGenerated(DatabaseGeneratedOption.Identity)
     ]
-    public int Id { get; set; }
+    public long Id { get; set; }
 
     [
         Required, 
@@ -39,7 +39,6 @@ public class User () {
         Column("chat_message", TypeName = "VARCHAR(255)"),
         MaxLength(ErrorMessage = "Exceeded max length. Try separating your message.")
     ]
-    public ChatMessage ChatMessage { get; set;}
     
     public ICollection<ChatMessage> ChatMessages { get; } = new List<ChatMessage>();
 }

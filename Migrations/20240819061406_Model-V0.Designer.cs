@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SimpleChat.Data;
 
@@ -10,9 +11,11 @@ using SimpleChat.Data;
 namespace SimpleChat.Migrations
 {
     [DbContext(typeof(ChatMessagesDBContext))]
-    partial class ChatMessagesDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240819061406_Model-V0")]
+    partial class ModelV0
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.8");

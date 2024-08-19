@@ -45,7 +45,7 @@ namespace SimpleChat.Controllers
         // PUT: api/Chat/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutChatMessage(int id, ChatMessage chatMessage)
+        public async Task<IActionResult> PutChatMessage(Guid id, ChatMessage chatMessage)
         {
             if (id != chatMessage.Id)
             {
@@ -100,7 +100,7 @@ namespace SimpleChat.Controllers
             return NoContent();
         }
 
-        private bool ChatMessageExists(int id)
+        private bool ChatMessageExists(Guid id)
         {
             return _context.ChatMessages.Any(e => e.Id == id);
         }
