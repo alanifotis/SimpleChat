@@ -17,54 +17,58 @@
 
     <DataAnnotationsValidator />
 
-
     <div>
-        <label>Enter your desired user name:</label>
-        <InputText class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" @bind-Value=@User.UserName type="text" />
+        @if (!String.IsNullOrWhiteSpace(errorMessage))
+        {
+            <div class="mt-2">
+                <p class="alert alert-danger"><span class="font-medium">@errorMessage</span></p>
+            </div>
+        }
+        <InputText @bind-Value=@User.UserName type="text" placeholder="Username"
+            class="max-w-200 max-h-10 p-px border-2 rounded-lg mb-2" />
         <ValidationMessage For="@(() => User!.UserName)" />
     </div>
     <div>
-        <label>Enter your Password:</label>
-        <InputText class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        @bind-Value=@User.Password type="password" />
+        <InputText class="max-w-200 max-h-10 p-px border-2 rounded-lg mb-2" @bind-Value=@User.Password type="password"
+            placeholder="Password" />
         <ValidationMessage For="@(() => User.Password)" />
     </div>
-    <div>
-        <button class="checkout-button btn btn-warning" type="submit">Register</button>
+
+    <div class="max-w-200 items-center">
+        <button class="btn btn-primary mt-2" type="submit">Register
+        </button>
     </div>
+
 </EditForm>
 
 
-<form class="max-w-sm mx-auto"> 
-  <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-  <input type="email" id="email" aria-describedby="helper-text-explanation"  placeholder="name@flowbite.com">
 
-  <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-400">We’ll never share your details. Read our <a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Privacy Policy</a>.</p>
-</form>
 
 
 @code {
-
     private User User = new User();
     private string errorMessage = string.Empty;
     private async Task NewUser()
     {
-       
+
         if (User is not null)
         {
             var post = await HttpClient.PostAsJsonAsync<User>(NavigationManager.BaseUri + "api/v1/user", User);
 
-            if (post.IsSuccessStatusCode) {
+            if (post.IsSuccessStatusCode)
+            {
                 UserNameService.UserName = User.UserName;
                 NavigationManager.NavigateTo("/chat");
-            } else if (post.StatusCode == HttpStatusCode.Conflict) {
+            }
+            else if (post.StatusCode == HttpStatusCode.Conflict)
+            {
                 ErrorResponse errorResponse = await post.Content.ReadFromJsonAsync<ErrorResponse>();
                 errorMessage = errorResponse.Message;
             }
         }
-    } 
+    }
 
-        public class ErrorResponse
+    public class ErrorResponse
     {
         public int Code { get; set; }
         public string Message { get; set; } = string.Empty;
