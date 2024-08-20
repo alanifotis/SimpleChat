@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -85,7 +80,7 @@ namespace SimpleChat.Controllers
 
             var duplicateUser = await _context.Users.FromSql($"select * from user where user_name={user.UserName.ToLower()}").ToListAsync();
             if(duplicateUser.IsNullOrEmpty()) await _context.SaveChangesAsync();
-            else return Conflict(new {Code = 409, Message = "User Already Exists" });
+            else return Conflict(new {Code = 409, Message = $"Username: {user.UserName.ToLower()} already in use." });
 
             return CreatedAtAction("GetUser", new { id = user.Id }, user);
         }

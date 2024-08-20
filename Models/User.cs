@@ -27,7 +27,7 @@ public class User()
     [
         Required,
         MinLength(6, ErrorMessage = "Min. 6 characters are required"),
-        MaxLength(50, ErrorMessage = "Max. allowed length is 50 Characters."),
+        MaxLength(255, ErrorMessage = "Max. allowed length is 50 Characters."),
         Column("password"),
         DataType(DataType.Password)
     ]
