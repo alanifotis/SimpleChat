@@ -1,0 +1,62 @@
+@page "/login"
+
+@rendermode InteractiveServer
+
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+
+@using SimpleChat.Models
+@using SimpleChat.Services
+
+<PageTitle>Login</PageTitle>
+
+<div class="h-screen flex justify-center items-center">
+    <EditForm Model=@User OnValidSubmit="LoginUser" class="flex flex-col space-y-4">
+        <AntiforgeryToken />
+
+        <DataAnnotationsValidator />
+
+        <div>
+            <InputText @bind-Value=@User.UserName type="text" placeholder="Username"
+                class="max-w-200 max-h-10 p-px border-2 rounded-lg mb-2" />
+            <ValidationMessage For="@(() => User!.UserName)" />
+        </div>
+        <div>
+            <InputText class="max-w-200 max-h-10 p-px border-2 rounded-lg mb-2" @bind-Value=@User.Password
+                type="password" placeholder="Password" />
+            <ValidationMessage For="@(() => User.Password)" />
+        </div>
+
+        <div class="max-w-200">
+            <button class="btn btn-primary mt-2 font-bold" type="submit">Register
+            </button>
+        </div>
+
+    </EditForm>
+
+</div>
+
+
+@code {
+    private User User = new();
+
+    public record Request(string UserName, string Password);
+
+
+
+    private async Task<User> LoginUser()
+    {
+   
+        User = HttpClient.GetFromJsonAsync(NavigationManager.BaseUri + "api/v1/login", )
+
+
+
+        if (User is not null)
+        {
+            User.Password = new PasswordHasher().Hash(User.Password);
+            var post = await HttpClient.PostAsJsonAsync<User>(NavigationManager.BaseUri + "api/v1/user", User);
+
+           
+        }
+    }
+}

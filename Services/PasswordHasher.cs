@@ -19,8 +19,14 @@ public class  PasswordHasher()
         return $"{Convert.ToHexString(hash)}-{Convert.ToHexString(salt)}";
     }
 
-    public string Decrypt(string password) {
-        return $"";
+    public bool Decrypt(string password, string passwordHash) {
+        string[] parts = passwordHash.Split('-');
+        byte[] hash = Convert.FromHexString(parts[0]);
+        byte[] salt = Convert.FromHexString(parts[1]);
+
+        byte[] inputHash = Rfc2898DeriveBytes.Pbkdf2(password, salt, Iterations, Algorithm, HashSize);
+
+        return CryptographicOperations.FixedTimeEquals(hash, inputHash);
     }
 
 }
