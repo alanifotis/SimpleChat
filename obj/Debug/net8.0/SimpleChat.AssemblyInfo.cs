@@ -13,7 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SimpleChat")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38d4be97071222b4fc5962a0c3f6878f281efd33")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6858623aa38e030bb70e8dccc00f6ecee14294e")]
+>>>>>>> thursday-22-08-24
 [assembly: System.Reflection.AssemblyProductAttribute("SimpleChat")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SimpleChat")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
