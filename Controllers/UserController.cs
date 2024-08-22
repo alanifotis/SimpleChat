@@ -1,8 +1,10 @@
+using Azure.Core;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using SimpleChat.Data;
 using SimpleChat.Models;
+using SimpleChat.Services;
 
 namespace SimpleChat.Controllers
 {
@@ -38,6 +40,28 @@ namespace SimpleChat.Controllers
             }
 
             return user;
+        }
+
+        // POST: Login User
+        [HttpPost("login")]
+        public async Task<ActionResult<User>> LoginUser(LoginRequest request)
+        {
+            var user = await _context.Users.FromSql($"select * from user where user_name={request.UserName}").FirstAsync();
+            
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            PasswordHasher passwordHasher = new();
+
+            if (passwordHasher.Decrypt(request.Password, user.Password))
+            {
+                return Ok();
+            } 
+            
+            return Unauthorized();
+
         }
 
         // PUT: api/User/5

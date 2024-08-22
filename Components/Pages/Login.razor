@@ -4,9 +4,14 @@
 
 @inject HttpClient HttpClient
 @inject NavigationManager NavigationManager
+@inject UserNameService UserNameService
 
+@using Microsoft.AspNetCore.Mvc
+@using NuGet.Protocol
 @using SimpleChat.Models
 @using SimpleChat.Services
+@using System.Net
+
 
 <PageTitle>Login</PageTitle>
 
@@ -34,29 +39,39 @@
 
     </EditForm>
 
+    @if (errorMessage)
+    {
+        <div class="mt-2 w-50">
+            <p class="alert alert-danger "><span class="font-bold">Username / Password are wrong.</span></p>
+        </div>
+    }
+
 </div>
+
+
 
 
 @code {
     private User User = new();
 
-    public record Request(string UserName, string Password);
+    private bool errorMessage = false;
 
-
-
-    private async Task<User> LoginUser()
+    private async Task LoginUser()
     {
-   
-        User = HttpClient.GetFromJsonAsync(NavigationManager.BaseUri + "api/v1/login", )
+        LoginRequest request = new(User.UserName, User.Password);
+
+        var response = await HttpClient.PostAsJsonAsync(NavigationManager.BaseUri + "api/v1/user/login", request);
 
 
-
-        if (User is not null)
+        if (response.IsSuccessStatusCode)
         {
-            User.Password = new PasswordHasher().Hash(User.Password);
-            var post = await HttpClient.PostAsJsonAsync<User>(NavigationManager.BaseUri + "api/v1/user", User);
+            UserNameService.UserName = User.UserName;
+            NavigationManager.NavigateTo("/chat");
+        }
 
-           
+        if (!response.IsSuccessStatusCode)
+        {
+            errorMessage = true;
         }
     }
 }
