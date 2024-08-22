@@ -1,0 +1,75 @@
+@using SimpleChat.Services
+@using SimpleChat.Models
+@using System.Net
+
+@rendermode InteractiveServer
+
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+@inject UserNameService UserNameService
+
+@page "/register"
+
+<PageTitle>Register</PageTitle>
+
+<div class="h-screen flex justify-center items-center">
+    <EditForm Model=@User OnValidSubmit="NewUser" class="flex flex-col space-y-4">
+        <AntiforgeryToken />
+
+        <DataAnnotationsValidator />
+
+        <div>
+            @if (!String.IsNullOrWhiteSpace(errorMessage))
+            {
+                <div class="mt-2 w-50">
+                    <p class="alert alert-danger "><span class="font-bold">@errorMessage</span></p>
+                </div>
+            }
+            <InputText @bind-Value=@User.UserName type="text" placeholder="Username"
+                class="max-w-200 max-h-10 p-px border-2 rounded-lg mb-2" />
+            <ValidationMessage For="@(() => User!.UserName)" />
+        </div>
+        <div>
+            <InputText class="max-w-200 max-h-10 p-px border-2 rounded-lg mb-2" @bind-Value=@User.Password
+                type="password" placeholder="Password" />
+            <ValidationMessage For="@(() => User.Password)" />
+        </div>
+
+        <div class="max-w-200">
+            <button class="btn btn-primary mt-2 font-bold" type="submit">Register
+            </button>
+        </div>
+
+    </EditForm>
+
+</div>
+
+@code {
+    private User User = new User();
+    private string errorMessage = string.Empty;
+    private async Task NewUser()
+    {
+        if (User is not null)
+        {
+            User.Password = new PasswordHasher().Hash(User.Password);
+            var post = await HttpClient.PostAsJsonAsync<User>(NavigationManager.BaseUri + "api/v1/user", User);
+
+            if (post.IsSuccessStatusCode)
+            {
+                UserNameService.UserName = User.UserName;
+                NavigationManager.NavigateTo("/chat");
+            }
+            else if (post.StatusCode == HttpStatusCode.Conflict)
+            {
+                ErrorResponse errorResponse = await post.Content.ReadFromJsonAsync<ErrorResponse>();
+                errorMessage = errorResponse.Message;
+            }
+        }
+    }
+
+    public class ErrorResponse
+    {
+        public int Code { get; set; }
+        public string Message { get; set; } = string.Empty;
+    }
+}

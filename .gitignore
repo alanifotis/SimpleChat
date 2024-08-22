@@ -1,0 +1,13 @@
+#Let's ignore some things
+
+# 1) Files
+# *.csproj
+# *.csproj.user
+# *.sln
+
+
+# 2) Folders
+bin/
+.vs/
+.vscode/
+.fake/
