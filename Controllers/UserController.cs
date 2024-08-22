@@ -19,7 +19,7 @@ namespace SimpleChat.Controllers
             _context = context;
         }
 
-        protected private List<User> Users { get; set; }
+        protected private List<User> Users { get; set; } = [];
 
         // GET: api/User
         [HttpGet]

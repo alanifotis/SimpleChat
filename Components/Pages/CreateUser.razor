@@ -59,10 +59,10 @@
                 UserNameService.UserName = User.UserName;
                 NavigationManager.NavigateTo("/chat");
             }
-            else if (post.StatusCode == HttpStatusCode.Conflict)
+            else if (!post.IsSuccessStatusCode)
             {
-                ErrorResponse errorResponse = await post.Content.ReadFromJsonAsync<ErrorResponse>();
-                errorMessage = errorResponse.Message;
+                ErrorResponse? errorResponse = await post.Content.ReadFromJsonAsync<ErrorResponse>();
+                errorMessage = errorResponse!.Message;
             }
         }
     }
