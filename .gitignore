@@ -10,4 +10,5 @@
 bin/
 .vs/
 .vscode/
-.fake
+.fake/
+obj/

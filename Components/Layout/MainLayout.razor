@@ -1,14 +1,18 @@
 ﻿@inherits LayoutComponentBase
 
+@inject NavigationManager NavigationManager
+
 <div class="page">
     <div class="sidebar">
         <NavMenu />
     </div>
 
     <main>
+        @if (!String.Equals($"{NavigationManager.BaseUri}register", $"{NavigationManager.Uri}")) {
         <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+            <a href="/register">Register</a>
         </div>
+        }
 
         <article class="content px-4">
             @Body

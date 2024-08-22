@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using SimpleChat.Components;
 using SimpleChat.Hubs;
 using SimpleChat.Data;
-using SimpleChat.Models;
+using SimpleChat.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +29,8 @@ builder.Services.AddHttpClient();
 
 // Add SignalR Service
 builder.Services.AddSignalR();
+
+builder.Services.AddSingleton<UserNameService>();
 
 builder.Services.AddResponseCompression(opts =>
 {
